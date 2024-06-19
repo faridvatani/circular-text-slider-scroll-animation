@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circular Text Slider Scroll Animation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="cursor"></div>
+
+    <nav>
+      <a href="/">Circular Slider</a>
+      <p>Scroll to see the magic</p>
+    </nav>
+
+    <footer>
+      <div class="links">
+        <a
+          href="https://github.com/faridvatani/circular-text-slider-scroll-animation"
+          >Source Code</a
+        >
+        <div class="divider"></div>
+        <a href="https://x.com/faridvatani">Twitter</a>
+        <a href="https://codepen.io/faridvatani">CodePen</a>
+      </div>
+      <p>
+        &copy;
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        <a href="https://github.com/faridvatani/">Farid Vatani</a> | all rights
+        reserved
+      </p>
+    </footer>
+
+    <div class="container">
+      <div class="gallery"></div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" src="./data.ts"></script>
+    <script type="module" src="./script.ts"></script>
+  </body>
+</html>
