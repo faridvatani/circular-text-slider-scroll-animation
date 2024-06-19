@@ -34,15 +34,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     item.addEventListener('mouseover', () => {
-      const imgSrc = `url(${interiors[i].image})`;
       const img = document.createElement('img');
       img.src = interiors[i].image;
-      img.style.clipPath = 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)';
+      img.style.clipPath = 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)';
       cursor.appendChild(img);
 
       gsap.to(img, {
-        clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 0 0)',
+        clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
         duration: 1,
+        ease: 'power3.out',
+      });
+
+      gsap.to(item, {
+        scale: 1.3,
+        duration: 0.5,
         ease: 'power3.out',
       });
     });
@@ -55,20 +60,26 @@ document.addEventListener('DOMContentLoaded', () => {
         Array.from(imgs).forEach((img, index) => {
           if (img !== lastImg) {
             gsap.to(img, {
-              clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 100%)',
+              clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
               duration: 1,
               ease: 'power3.out',
               onComplete: () => {
                 setTimeout(() => {
                   img.remove();
-                }, index * 100);
+                }, 1000);
               },
             });
           }
         });
 
+        gsap.to(item, {
+          scale: 1,
+          duration: 0.5,
+          ease: 'power3.out',
+        });
+
         gasp.to(lastImg, {
-          clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 100%)',
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
           duration: 1,
           ease: 'power3.out',
           delay: 0.25,
@@ -78,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updatePosition() {
-    const scrollAmount = window.scrollY * 0.0001;
+    const scrollAmount = window.scrollY * 0.0005;
     document.querySelectorAll('.item').forEach((item, index) => {
       const angle = index * angleIncrement + scrollAmount;
       const x = centerX + radius * Math.cos(angle);
